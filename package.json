@@ -2,7 +2,7 @@
   "name": "testyy",
   "version": "1.0.0",
   "description": "",
-   "main": "server.js",
+  "main": "server.js",
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
@@ -17,11 +17,10 @@
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "if-env": "^1.0.4",
+    "install": "^0.12.2",
+    "material-ui": "^0.20.2",
     "mongoose": "^5.3.6",
     "reactstrap": "^6.5.0"
   },
   "proxy": "http//localhost:8080"
 }
-  
-
-

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import api from "../api/users.js";
+// import { link } from "react-router-dom";
+import LinkButton from "./LinkButton";
+import NavBar from "./navBar/NavBar";
 
 export default class Login extends Component {
   import;
@@ -22,7 +25,7 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        {" "}
+        <NavBar />
         <input
           onChange={this.captureInput}
           name="username"
@@ -33,7 +36,7 @@ export default class Login extends Component {
         <label for="username">First Name</label>
         <input onChange={this.captureInput} name="username" />
         <input onChange={this.captureInput} name="password" />
-        <button onClick={this.handleSignUp}>Submit</button>
+        <LinkButton to="/profileCreate">FUCKFUCKFUCK</LinkButton>
       </div>
     );
   }
