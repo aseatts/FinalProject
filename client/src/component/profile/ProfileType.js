@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 // import { List, ListItem } from "../List";
+import { withStyles } from "@material-ui/core/styles";
 import { ListItem, List } from "@material-ui/core";
 
 import Button from "@material-ui/core/Button";
 import CButton from "../css/Buttons";
 
 import DeleteIcon from "@material-ui/icons/Delete";
+import ClassNames from "../ButtonGradTest";
 
 // import ProfileCreate from "profileCreate";
 const styles = {
@@ -33,35 +35,19 @@ class profileTypes extends Component {
       { id: 4, name: "dance" }
     ]
   };
-  CButton
+  CButton;
   render() {
     return (
       <div>
         <List>
           {this.state.profTypes.map((profType) => (
             <ListItem key={profType._id}>
-              <Link to={"/profiles/" + profType._id}>
-                <strong>{profType.name}</strong>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-        <Button
-          variant="fab"
-          disabled
-          aria-label="Delete"
-          className="extendedFab"
-        >
-          <DeleteIcon />{" "}
-        </Button>{" "}
-        <CButton />
-        <List>
-          {this.state.profTypes.map((profType) => (
-            <ListItem key={profType._id}>
-              <CButton to={"/profiles/" + profType._id} label={profType.name}>
-                {profType.name}
+              <ClassNames
+                to={"/profiles/" + profType._id}
+                label={profType.name}
+              >
                 <strong>{profType.name}</strong>{" "}
-              </CButton>
+              </ClassNames>
             </ListItem>
           ))}
         </List>
@@ -69,4 +55,4 @@ class profileTypes extends Component {
     );
   }
 }
-export default profileTypes;
+export default withStyles(styles)(profileTypes);
