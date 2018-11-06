@@ -79,7 +79,7 @@ const currencies = [
   { label: "Snapchat", value: "Snapvalue" }
 ];
 
-class ProfileForms extends React.Component {
+class NewProfileName extends React.Component {
   state = {
     Persona: "Cat in the Hat",
     age: "",
@@ -206,8 +206,8 @@ class ProfileForms extends React.Component {
   }
 }
 
-ProfileForms.propTypes = {
+NewProfileForms.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(ProfileForms);
+export default withStyles(styles)(NewProfileForms);

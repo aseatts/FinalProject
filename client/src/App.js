@@ -10,7 +10,7 @@ import Introduction from "./component/Introduction";
 import ProfileTypes from "./component/profile/ProfileType";
 import Button from "./component/css/Buttons";
 import ClassNames from "./component/ButtonGradTest.js";
-import ProfileFroms from "./component/profile/ProfileForms.js";
+import InputObjects from "./component/profile/InputObjects";
 // import newProfile from "./component/newProfile";
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/profiles/:id" component={ProfileView} />
             <Route exact path="/Button" component={Button} />
             <Route exact path="/ButtonGrad" component={ClassNames} />
-            <Route exact path="/ProfileForms" component={ProfileFroms} />
+            <Route exact path="/InputObjects" component={InputObjects} />
             <Route component={Router.NoMatch} />
           </Switch>
         </Router>
