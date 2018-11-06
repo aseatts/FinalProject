@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 
 import ClassNames from "../ButtonGradTest";
 
-const Personas = {
+const PersonaQuestions = {
   Categorie: [
     { label: "FreeTime Hobby", value: "FreeTime Hobby" },
     { label: "Astrological Sign", value: "Astrological Sign" },
