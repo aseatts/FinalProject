@@ -25,7 +25,7 @@ function ButtonAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ opacity: 0.5 }}>
         <Toolbar>
           <IconButton
             className={classes.menuButton}
@@ -35,11 +35,15 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            Persona
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+      <div>
+        <br />
+        <br />
+      </div>
     </div>
   );
 }

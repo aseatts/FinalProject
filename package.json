@@ -6,6 +6,13 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "seed": "node scripts/profileQuestionSeed.js && node profileTypeSeed.js",
+    "install": "cd client && yarn install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "keywords": [],

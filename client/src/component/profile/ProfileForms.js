@@ -108,9 +108,6 @@ class ProfileForms extends React.Component {
           variant="outlined"
         />
         <TextField
-          id="outlined-textarea"
-          label="Multiline Placeholder"
-          placeholder="Placeholder"
           multiline
           className={classes.textField}
           margin="normal"
