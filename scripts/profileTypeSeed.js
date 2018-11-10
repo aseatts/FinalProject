@@ -1,22 +1,22 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const ProfileType = require("../models");
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/persona_v010");
 
 const ProfileTypeSeed = [
-  { ProfileTypeName: "Professional" },
-  { ProfileTypeName: "Spirtual" },
-  { ProfileTypeName: "Artist" },
-  { ProfileTypeName: "Parent" },
-  { ProfileTypeName: "Student" },
-  { ProfileTypeName: "Special" }
+  { profileTypeName: "Professional", img: "" },
+  { profileTypeName: "Spirtual", img: "" },
+  { profileTypeName: "Artist", img: "" },
+  { profileTypeName: "Parent", img: "" },
+  { profileTypeName: "Student", img: "" },
+  { profileTypeName: "Special", img: "" }
 ];
 
-db.remove({})
-  .then(() => db.ProfileType.collection.insertMany(ProfileTypeSeed))
+ProfileType.deleteMany()
+  .then(() => ProfileType.insertMany(ProfileTypeSeed))
   .then((data) => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.length + " records inserted!");
     process.exit(0);
   })
   .catch((err) => {
