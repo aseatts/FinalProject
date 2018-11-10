@@ -1,12 +1,3 @@
-const profileQuestions = require("./Profiles");
-module.exports = {
-  Profiles: ProfilprofileQuestionses
-};
-const profileNameSchema = require("./Profiles");
-module.exports = {
-  Profiles: profileNameSchema
-};
-const profileNameSchema = require("./Profiles");
-module.exports = {
-  Profiles: profileNameSchema
-};
+module.exports = { ProfileQuestion } = require("./profileQuestion");
+module.exports = { ProfileName } = require("./profileName");
+module.exports = { ProfileType } = require("./profileType");

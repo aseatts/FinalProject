@@ -1,8 +1,20 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const ProfileQuestion = require("../models/profileQuestion");
+// const Schema = mongoose.Schema;
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/persona_v010");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Personav_010");
+
+// const ProfileTypeSchema = new mongoose.Schema({
+//   profileTypeName: { type: String, required: true },
+//   img: { type: String },
+//   createdDate: { type: Date, default: Date.now }
+// });
+
+// const ProfileType = mongoose.model("ProfileType", ProfileTypeSchema);
+// // module.exports = ProfileType;
+
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/persona_v010");
 
 const ProfileQuestionSeed = [
   {
@@ -295,10 +307,10 @@ const ProfileQuestionSeed = [
   }
 ];
 
-db.Profiles.deleteMany({})
-  .then(() => db.Profiles.collection.insertMany(ProfileQuestionSeed))
+ProfileQuestion.deleteMany()
+  .then(() => ProfileQuestion.insertMany(ProfileQuestionSeed))
   .then((data) => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data.length + " records inserted!");
     process.exit(0);
   })
   .catch((err) => {

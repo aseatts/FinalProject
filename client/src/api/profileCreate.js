@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = {
-  profileCreate: function(profileType) {
-    return axios.post("/profileCreate", profileType);
+  profileCreate: function(CreatenewProfile) {
+    return axios.post("/profileCreate", newProfile);
   }
 };
 

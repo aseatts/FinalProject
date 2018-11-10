@@ -1,8 +1,20 @@
 import React, { Component } from "react";
+
 import api from "../api/users.js";
 // import { link } from "react-router-dom";
 import LinkButton from "./LinkButton";
 import NavBar from "./navBar/NavBar";
+// import Grid from "@material-ui/core/Grid";
+
+import ProfileCreate from "./profile/ProfileCreate.js";
+import Profiles from "./profile/Profiles.js";
+import ProfileView from "./profile/ProfileView.js";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Introduction from "./Introduction";
+import ProfileTypes from "./profile/ProfileType";
+
+// import ClassNames from "./component/ButtonGradTest.js";
+// import InputObjects from "./component/profile/InputObjects";
 
 export default class Login extends Component {
   import;
@@ -25,7 +37,13 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar> /NavBar</NavBar>
+        <ProfileTypes> profileTypes </ProfileTypes>
+        <Introduction> intorduction </Introduction>
+        <ProfileView> profileView </ProfileView>
+        <Profiles> /Profiles</Profiles>
+        <ProfileCreate> PRofile Create</ProfileCreate>
+
         <input
           onChange={this.captureInput}
           name="username"
