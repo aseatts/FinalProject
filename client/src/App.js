@@ -8,9 +8,11 @@ import ProfileView from "./component/profile/ProfileView.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Introduction from "./component/Introduction";
 import ProfileTypes from "./component/profile/ProfileType";
+import ProfileTypes2 from "./component/profile/Profiles";
 import Button from "./component/css/Buttons";
 import ClassNames from "./component/ButtonGradTest.js";
 import InputObjects from "./component/profile/InputObjects";
+
 // import newProfile from "./component/newProfile";
 
 class App extends Component {
@@ -22,8 +24,10 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/intro" component={Introduction} />
             <Route exact path="/profileCreate" component={ProfileCreate} />
+
             <Route exact path="/profiles" component={Profiles} />
             <Route exact path="/profileTypes" component={ProfileTypes} />
+            <Route exact path="/profileTypes2" component={ProfileTypes2} />
             <Route exact path="/profiles/:id" component={ProfileView} />
             <Route exact path="/Button" component={Button} />
             <Route exact path="/ButtonGrad" component={ClassNames} />

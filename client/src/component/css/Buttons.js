@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
@@ -8,6 +9,8 @@ import Button from "@material-ui/core/Button";
 const styles = {
   root: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    textAlign: "center",
+    justify: "center",
     borderRadius: 3,
     border: 0,
     color: "white",
@@ -21,7 +24,14 @@ function ClassNames(props) {
   const { classes, children, className, ...other } = props;
 
   return (
-    <Button className={classNames(classes.root, className)} {...other}>
+    <Button
+      container
+      justify="center"
+      direction="row"
+      alignItems="center"
+      className={classNames(classes.root, className)}
+      {...other}
+    >
       {children || "class names"}
     </Button>
   );

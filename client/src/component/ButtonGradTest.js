@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 // We can inject some CSS into the DOM.
 const styles = {
   root: {
+    textAlign: "center",
+    justify: "center",
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     borderRadius: 3,
     border: 0,
@@ -17,20 +19,20 @@ const styles = {
   }
 };
 
-function ClassNames(props) {
+function button(props) {
   const { classes, children, className, ...other } = props;
 
   return (
-    <Button className={classNames(classes.root, className)} {...other}>
+    <Button className={button(classes.root, className)} {...other}>
       {children || "class names"}
     </Button>
   );
 }
 
-ClassNames.propTypes = {
+Button.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object.isRequired,
   className: PropTypes.string
 };
 
-export default withStyles(styles)(ClassNames);
+export default withStyles(styles)(Button);

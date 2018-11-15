@@ -1,15 +1,13 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import { List, ListItem } from "../List";
-import { withStyles } from "@material-ui/core/styles";
 import { ListItem, List } from "@material-ui/core";
 
-import Button from "@material-ui/core/Button";
-import CButton from "../css/Buttons";
+import Button from "../ButtonGradTest";
+import Grid from "@material-ui/core/Grid";
+import API from "../../utils/API";
 
-import DeleteIcon from "@material-ui/icons/Delete";
-import ClassNames from "../ButtonGradTest";
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import ListItemText from '@material-ui/core/ListItemText';
 
 // import ProfileCreate from "profileCreate";
 const styles = {
@@ -20,13 +18,49 @@ const styles = {
     color: "white",
     height: 48,
     padding: "0 30px",
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)"
+    boxShadow: "0 3px 5px 2px rgba(149, 62, 250, .3)",
+    flexGrow: 1,
+    display: "grid",
+    gridTemplateColumns: "repeat(12, 1fr)",
+    justify: "center",
+    direction: "row",
+    alignItems: "center"
   },
   label: {
     textTransform: "capitalize"
-  }
+  },
+  container: {
+    display: "grid",
+    gridTemplateColumns: "repeat(12, 1fr)",
+    justify: "center",
+    direction: "row",
+    alignItems: "center"
+  },
+  CButton: { justify: "center", direction: "row", alignItems: "center" }
 };
 class profileTypes extends Component {
+  state = {
+    profTypes: {}
+  };
+  // componentDidMount() {
+  //   this.getprofTypes();
+  // }
+  // getprofTypes = () => {
+  //   API.getprofileTypes
+  //     .then((res) => this.setState({ profTypes: res.data }))
+  //     .catch((err) => console.log(err));
+  // };
+
+  // loadProfileTypes = () => {
+  //   API.getprofiles()
+  //     .then((res) =>
+  //       this.setState({
+  //         profileTypes: res.data
+  //       })
+  //     )
+  //     .catch((err) => console.log(err));
+  // };
+
   state = {
     profTypes: [
       { id: 1, name: "dating" },
@@ -35,24 +69,37 @@ class profileTypes extends Component {
       { id: 4, name: "dance" }
     ]
   };
-  CButton;
+  classes = this.props;
+
+  //}
+
   render() {
     return (
-      <div>
-        <List>
-          {this.state.profTypes.map((profType) => (
-            <ListItem key={profType._id}>
-              <ClassNames
-                to={"/profiles/" + profType._id}
-                label={profType.name}
-              >
-                <strong>{profType.name}</strong>{" "}
-              </ClassNames>
-            </ListItem>
-          ))}
-        </List>
+      <div container spacing={24}>
+        <div className={this.props.root}>
+          <Grid>
+            <Grid
+              item
+              xs={12}
+              container
+              justify="center"
+              // onClick={() => this.deleteBook(book._id)}
+            >
+              <List>
+                {this.state.profTypes.map((profType) => (
+                  <ListItem key={profType._id}>
+                    <Button to={"/profiles/" + profType._id}>
+                      <strong>{profType.name}</strong>
+                    </Button>
+                  </ListItem>
+                ))}
+              </List>
+              /
+            </Grid>
+          </Grid>
+        </div>
       </div>
     );
   }
 }
-export default withStyles(styles)(profileTypes);
+export default profileTypes;

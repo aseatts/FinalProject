@@ -3,12 +3,12 @@ const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 
-const persona_v010 = new Schema({
+const ProfileUsers = new Schema({
   username: { type: String, required: true, index: { unique: true } },
   password: { type: String, required: true }
 });
 
-userSchema.pre("save", function(next) {
+ProfileUsers.pre("save", function(next) {
   var user = this;
 
   // only hash the password if it has been modified (or is new)
@@ -29,12 +29,12 @@ userSchema.pre("save", function(next) {
   });
 });
 
-persona_v010.methods.comparePassword = function(candidatePassword, cb) {
+ProfileUsers.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) return cb(err);
     cb(null, isMatch);
   });
 };
-const User = mongoose.model("User", persona_v010);
+const User = mongoose.model("ProfileUser", ProfileUsers);
 
 module.exports = User;

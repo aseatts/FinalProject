@@ -12,9 +12,16 @@ import ProfileView from "./profile/ProfileView.js";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Introduction from "./Introduction";
 import ProfileTypes from "./profile/ProfileType";
+import Background from "./css/background/BG_awake.png";
+import { relative } from "path";
 
 // import ClassNames from "./component/ButtonGradTest.js";
-// import InputObjects from "./component/profile/InputObjects";
+// import InputObjects from ".component/profile/InputObjects";
+
+const divStyle = {
+  backgroundImage: `url(${Background})`,
+  backgroundSize: "cover"
+};
 
 export default class Login extends Component {
   import;
@@ -36,14 +43,17 @@ export default class Login extends Component {
   };
   render() {
     return (
-      <div>
-        <NavBar> /NavBar</NavBar>
+      <div div className="cComponent" style={divStyle}>
+        ><NavBar> /NavBar</NavBar>
         <ProfileTypes> profileTypes </ProfileTypes>
+        <ProfileTypes className="Classes" style="align-content-xs-center: true; align">
+          {" "}
+          profileTypes{" "}
+        </ProfileTypes>
         <Introduction> intorduction </Introduction>
         <ProfileView> profileView </ProfileView>
         <Profiles> /Profiles</Profiles>
         <ProfileCreate> PRofile Create</ProfileCreate>
-
         <input
           onChange={this.captureInput}
           name="username"
