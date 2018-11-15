@@ -32,10 +32,8 @@ module.exports = {
   getAllProfileTypes: function(req, res) {
     db.profiletypes
       .find(req.query)
-      .then(console.log(req.query))
-      .then((dbModel) => console.log(res.json(dbModel)))
-      // res.json(dbModel))
-      // .then(console.log(res.json(dbModel)))
+      .then((dbModel) => res.json(dbModel))
+      .then(console.log("res"))
       .catch((err) => res.status(422).json(err));
     // getAllProfileTypes: function(req, res) {
     //   `https://jsonplaceholder.typicode.com/users`(req.query)
