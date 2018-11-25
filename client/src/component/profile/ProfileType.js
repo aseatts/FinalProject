@@ -5,11 +5,18 @@ import { ListItem, List } from "@material-ui/core";
 import Button from "../ButtonGradTest";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API";
+import Background from "../css/background/BG_awake.png";
 
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
 // import ListItemText from '@material-ui/core/ListItemText';
 
 // import ProfileCreate from "profileCreate";
+
+const divStyle = {
+  backgroundImage: `url(${Background})`,
+  backgroundSize: "cover"
+};
+
 const styles = {
   root: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -42,40 +49,43 @@ class profileTypes extends Component {
   state = {
     profTypes: {}
   };
-  // componentDidMount() {
-  //   this.getprofTypes();
-  // }
-  // getprofTypes = () => {
-  //   API.getprofileTypes
-  //     .then((res) => this.setState({ profTypes: res.data }))
-  //     .catch((err) => console.log(err));
-  // };
-
-  // loadProfileTypes = () => {
-  //   API.getprofiles()
-  //     .then((res) =>
-  //       this.setState({
-  //         profileTypes: res.data
-  //       })
-  //     )
-  //     .catch((err) => console.log(err));
-  // };
-
   state = {
-    profTypes: [
-      { id: 1, name: "dating" },
-      { id: 2, name: "medwordical" },
-      { id: 3, name: "action" },
-      { id: 4, name: "dance" }
-    ]
+    profTypes: []
   };
+  componentDidMount() {
+    this.loadProfTypes();
+  }
+
+  getprofTypes = () => {
+    console.log.then((res) => this.setState({ profTypes: res.data }));
+    console.log.catch((err) => console.log(err));
+  };
+
+  loadProfTypes = () => {
+    API.getprofileTypes()
+      .then((res) => this.setState({ profTypes: res.data }))
+
+      // .then(console.log(this.state.profType))
+      .catch((err) => console.log(err));
+  };
+
+  // state = {
+  //   profTypes: [
+  //     { id: 1, name: "dating" },
+  //     { id: 2, name: "medwordical" },
+  //     { id: 3, name: "action" },
+  //     { id: 4, name: "dance" }
+  //   ]
+  // };
   classes = this.props;
 
-  //}
+  S = () => {
+    console.log(this.state.profTypes);
+  };
 
   render() {
     return (
-      <div container spacing={24}>
+      <div div className="cComponent" style={divStyle}>
         <div className={this.props.root}>
           <Grid>
             <Grid
@@ -83,21 +93,28 @@ class profileTypes extends Component {
               xs={12}
               container
               justify="center"
+
               // onClick={() => this.deleteBook(book._id)}
             >
-              <List>
+              <List justify="center">
+                {" "}
+                <h3 justify="center"> Please choose a profile type</h3>
                 {this.state.profTypes.map((profType) => (
-                  <ListItem key={profType._id}>
-                    <Button to={"/profiles/" + profType._id}>
-                      <strong>{profType.name}</strong>
+                  <ListItem justify="center" key={profType._id}>
+                    <Button justify="center" to=".">
+                      <strong justify="center">
+                        {profType.profileTypeName}
+                      </strong>
                     </Button>
                   </ListItem>
                 ))}
               </List>
-              /
             </Grid>
           </Grid>
         </div>
+        <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br />
       </div>
     );
   }

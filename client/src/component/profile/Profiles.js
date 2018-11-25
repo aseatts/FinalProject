@@ -39,43 +39,32 @@ const styles = {
   CButton: { justify: "center", direction: "row", alignItems: "center" }
 };
 
-console.log(API.getprofileTypes);
+// console.log(API.getprofileTypes);
 class profileTypes2 extends Component {
   state = {
     profTypes: []
   };
   componentDidMount() {
-    this.getprofTypes();
+    this.loadProfTypes();
   }
 
   getprofTypes = () => {
-    API.getprofileTypes()
-
-      .then((res) => this.setState({ profTypes: res.data }))
-      .catch((err) => console.log(err));
+    console.log.then((res) => this.setState({ profTypes: res.data }));
+    console.log.catch((err) => console.log(err));
   };
 
-  // loadProfileTypes = () => {
-  //   API.getprofiles()
-  //     .then((res) =>
-  //       this.setState({
-  //         profileTypes: res.data
-  //       })
-  //     )
-  //     .catch((err) => console.log(err));
-  // };
+  loadProfTypes = () => {
+    API.getprofileTypes()
+      .then((res) =>
+        this.setState({
+          profTypes: res.data
+        })
+      )
+      .catch((err) => console.log(err));
+    console.log(this.state.profTypes);
+  };
 
-  // state = {
-  //   profTypes: [
-  //     { id: 1, name: "dating" },
-  //     { id: 2, name: "medwordical" },
-  //     { id: 3, name: "action" },
-  //     { id: 4, name: "dance" }
-  //   ]
-  // };
   classes = this.props;
-
-  //}
 
   render() {
     return (

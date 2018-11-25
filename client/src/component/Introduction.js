@@ -6,6 +6,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
 
 const styles = {
   card: {
@@ -22,12 +23,12 @@ const styles = {
   },
   pos: {
     marginBottom: 12
-  }
+  },
+  Paper: {}
 };
 
 function SimpleCard(props) {
   const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.card}>

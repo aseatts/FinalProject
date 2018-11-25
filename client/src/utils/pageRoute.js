@@ -25,9 +25,8 @@ export default {
   //   return axios.get("/api/profile/linkquestions" + id);
   // },
   // // gets the profile types
-
   getprofileTypes: function() {
-    const x = axios.get("http://localhost:8080/api/index");
+    const x = axios.get("http://localhost:8080/TransitionMaster");
     console.log(x);
     return x;
   }
